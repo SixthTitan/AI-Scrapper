@@ -1,0 +1,30 @@
+version: '3'
+services:
+  cargurus:
+    container_name: cargurus
+    hostname: cargurus
+    image: laurensarah2022/cargurus:latest
+    environment:
+      - email=
+      - url=
+      - AWS_ACCESS_KEY_ID=
+      - AWS_SECRET_ACCESS_KEY=
+      - AWS_DEFAULT_REGION=
+    restart: unless-stopped
+    volumes:
+     - /var/run/docker.sock:/var/run/docker.sock
+  realtor:
+    container_name: realtor
+    hostname: realtor
+    image: laurensarah2022/realtor:latest
+    environment:
+      - email=
+      - realtor_url=
+      - apartments_url=
+      - AWS_ACCESS_KEY_ID=
+      - AWS_SECRET_ACCESS_KEY=
+      - AWS_DEFAULT_REGION=
+    restart: unless-stopped
+    volumes:
+     - /var/run/docker.sock:/var/run/docker.sock
+
